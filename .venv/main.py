@@ -145,20 +145,6 @@ async def clearing(msg: types.Message):
 
 
 
-@dp.message(F.text == "Ну, сука!")
-async def cmd_custom1(msg: Message):
-    msgIds.append(msg.message_id)
-    message = await msg.answer("Сам сука!! Работай как все!")
-    msgIds.append(message.message_id)
-
-@dp.message(F.text == "Пидор")
-async def cmd_custom1(msg: Message):
-    message = await msg.answer("Хуй соси!")
-    msgIds.append(msg.message_id)
-    msgIds.append(message.message_id)
-
-
-
 
 async def main():
     await dp.start_polling(bot)
