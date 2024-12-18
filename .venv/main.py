@@ -50,7 +50,6 @@ async def cmd_start(msg: types.Message):
     message = await msg.answer("🐉Good morning, Weather Hackers!🐉 \n Перед началом работы отправь мне свою геолокацию", reply_markup=keyboard)
     msgIds.append(message.message_id)
 
-
 # getting location data and mode choice
 @dp.message(F.location)
 async def location_get(msg: types.Message):
@@ -75,8 +74,6 @@ async def location_get(msg: types.Message):
     message = await msg.answer("Выбери интересующий вариант: ", reply_markup=keyboard)
     msgIds.append(message.message_id)
 
-
-
 # get weather data at the moment 
 @dp.message(F.text == "🌄Узнать погоду сейчас")
 async def weather_at_the_moment(msg: types.Message):
@@ -100,8 +97,6 @@ async def weather_at_the_moment(msg: types.Message):
 🫧Влажность: {humidity}%🫧
 Короче, на пары можно не идти""")
     msgIds.append(message.message_id)
-
-
 
 # get weather data for 5 days
 @dp.message(F.text == "🌆Узнать погоду на 5 дней")
@@ -131,20 +126,12 @@ async def weather_at_the_moment(msg: types.Message):
             prev_date = date_today
             msgIds.append(message.message_id)
 
-
-
 # get weather data for 5 days
 @dp.message(F.text == "🧽Очистить и вернуться к началу🧽")
 async def clearing(msg: types.Message):
     index = msg.chat.id    
     msgIds.append(msg.message_id)
     await bot.delete_messages(index, msgIds)
-    
-    
-
-
-
-
 
 async def main():
     await dp.start_polling(bot)
